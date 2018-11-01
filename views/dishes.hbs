@@ -1,0 +1,16 @@
+
+{{#each dishes}}
+  <h2 class= "category-title">{{name}}</h2>
+  <div class="things-tiled-list">
+    {{#each items}}
+    <div class="media boxed-item item-selected">
+      <img class="mr-3" src="/images/fush.png" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
+          {{name}}
+        </h5>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+{{/each}}
