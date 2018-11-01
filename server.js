@@ -14,6 +14,7 @@ server.set('view engine', 'hbs')
 server.use(express.urlencoded({extended: true}))
 
 // Routes
+server.use(express.static('public'))
 
 server.use('/', userRoutes)
 

@@ -1,11 +1,39 @@
 
-<h1>Food Things</h1>
 
-{{#each categories}}
-  <p>{{name}}</p>
-  <ul>
-    {{#each items}}
-    <li>{{name}}</li>
-    {{/each}}
-  </ul>
-{{/each}}
+
+<form>
+  
+  <input class="btn selection-submit-btn" type="submit" value="What Can I Make?">
+  {{#each categories}}
+    <h2 class= "category-title">{{name}}</h2>
+    <div class="things-tiled-list">
+      {{#each items}}
+      <div class="media boxed-item item-not-selected" id="item{{id}}">
+        <img class="mr-3" src="/images/fush.png" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">
+            {{name}}
+          </h5>
+          <input type="checkbox" class="big-checkbox" name="{{id}}" onclick="toggleState()">
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  {{/each}}
+
+</form>
+
+<script>
+  function toggleState(){
+    let theItem = document.getElementById("item"+event.target.name);
+
+    if(event.target.checked){
+      theItem.classList.add("item-selected")
+      theItem.classList.remove("item-not-selected")
+    }
+    else{
+      theItem.classList.add("item-not-selected")
+      theItem.classList.remove("item-selected")
+    }
+  }
+</script>

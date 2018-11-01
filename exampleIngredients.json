@@ -1,0 +1,29 @@
+{
+    "categories": [{
+    "name": "veg",
+    "items": [
+      {"id": 0,"name":"Carrot"},
+      {"id": 1,"name":"potato"},
+      {"id": 2,"name":"tomato"},
+      {"id": 3,"name":"beans"},
+      {"id": 4,"name":"leeks"}
+    ]
+  },
+  {
+    "name": "meat",
+    "items": [
+      {"id": 5,"name":"beef"},
+      {"id": 6,"name":"lamb"},
+      {"id": 7,"name":"more beef"}
+    ]
+  },
+  {
+    "name": "grain",
+    "items": [
+      {"id": 8,"name":"pasta"},
+      {"id": 9,"name":"fancy pasta"},
+      {"id": 10,"name":"rice"}
+    ]
+  }
+]
+}
