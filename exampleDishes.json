@@ -1,26 +1,28 @@
 {
-    "dishes": [{
-    "name": "Spag bol",
-    "items": [
-      {"id": 0,"name":"pasta"},
-      {"id": 1,"name":"meat"},
-      {"id": 2,"name":"tomato"}
-    ]
-  },
-  {
-    "name": "Chicken n rice",
-    "items": [
-      {"id": 5,"name":"chicken"},
-      {"id": 6,"name":"rice"}
-    ]
-  },
-  {
-    "name": "Breakfast",
-    "items": [
-      {"id": 8,"name":"cereal"},
-      {"id": 9,"name":"milk"},
-      {"id": 10,"name":"SUGAR!!!!"}
-    ]
-  }
-]
+  "dishes": [
+    {
+      "name": "Spag bol",
+      "items": [
+        { "id": 0, "name": "pasta" },
+        { "id": 1, "name": "meat" },
+        { "id": 2, "name": "tomato" }
+      ]
+    },
+    {
+      "name": "Steak",
+      "items": [{ "id": 0, "name": "steak" }]
+    },
+    {
+      "name": "Chicken n rice",
+      "items": [{ "id": 5, "name": "chicken" }, { "id": 6, "name": "rice" }]
+    },
+    {
+      "name": "Breakfast",
+      "items": [
+        { "id": 8, "name": "cereal" },
+        { "id": 9, "name": "milk" },
+        { "id": 10, "name": "SUGAR!!!!" }
+      ]
+    }
+  ]
 }

@@ -1,37 +1,34 @@
+<form action="/dishes" method="get">
 
-
-
-<form>
-  
-  <input type="submit" action="/dishes" method="post" value="What Can I Make?">
+  <input class="btn btn-outline-primary" type="submit" value="What Can I Make?">
   {{#each categories}}
-    <h2 class= "category-title">{{name}}</h2>
-    <div class="things-tiled-list">
-      {{#each items}}
-      <div class="media boxed-item item-not-selected" id="item{{id}}">
-        <img class="mr-3" src="/images/fush.png" alt="Generic placeholder image">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">
-            {{name}}
-          </h5>
-          <input type="checkbox" class="big-checkbox" name="{{id}}" onclick="toggleState()">
-        </div>
+  <h2 class="category-title">{{name}}</h2>
+  <div class="things-tiled-list">
+    {{#each items}}
+    <div class="media boxed-item item-not-selected" id="item{{id}}">
+      <img class="mr-3" src="/images/fush.png" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
+          {{name}}
+        </h5>
+        <input type="checkbox" class="big-checkbox" name="{{id}}" onclick="toggleState()">
       </div>
-      {{/each}}
     </div>
+    {{/each}}
+  </div>
   {{/each}}
 
 </form>
 
 <script>
-  function toggleState(){
-    let theItem = document.getElementById("item"+event.target.name);
+  function toggleState() {
+    let theItem = document.getElementById("item" + event.target.name);
 
-    if(event.target.checked){
+    if (event.target.checked) {
       theItem.classList.add("item-selected")
       theItem.classList.remove("item-not-selected")
     }
-    else{
+    else {
       theItem.classList.add("item-not-selected")
       theItem.classList.remove("item-selected")
     }
