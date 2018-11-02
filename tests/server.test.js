@@ -44,15 +44,6 @@ jest.mock("../db", () => ({
       { id: 10, name: "rice" }
     ])
 }));
-//   {
-//   getUser: id =>
-//     Promise.resolve({ id: id, name: "test user", email: "test@user.nz" }),
-//   getUsers: () =>
-//     Promise.resolve([
-//       { id: 2, name: "test user 2", email: "test2@user.nz" },
-//       { id: 4, name: "test user 4", email: "test4@user.nz" }
-//     ])
-// }
 
 const server = require("../server");
 
@@ -80,6 +71,34 @@ test("test ingredeints list", () => {
         .first()
         .text();
       expect(ingredientsList).toBe("Carrot");
+    })
+    .catch(err => expect(err).toBeNull());
+});
+
+test("test dishes list", () => {
+  return request(server)
+    .get("/dishes")
+    .expect(200)
+    .then(res => {
+      const $ = cheerio.load(res.text);
+      const ingredientsList = $("h5")
+        .first()
+        .text();
+      expect(ingredientsList).toBe("pasta");
+    })
+    .catch(err => expect(err).toBeNull());
+});
+
+test("test dish list", () => {
+  return request(server)
+    .get("/dishes")
+    .expect(200)
+    .then(res => {
+      const $ = cheerio.load(res.text);
+      const ingredientsList = $("h2")
+        .first()
+        .text();
+      expect(ingredientsList).toBe("Spag bol");
     })
     .catch(err => expect(err).toBeNull());
 });

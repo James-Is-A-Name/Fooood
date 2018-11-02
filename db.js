@@ -4,7 +4,8 @@ const connection = require("knex")(config);
 
 module.exports = {
   getIngredients: getIngredients,
-  getAllDishes: getAllDishes
+  getAllDishes: getAllDishes,
+  addNewDish: addNewDish
 };
 
 function getIngredients(testConn) {
@@ -47,4 +48,20 @@ function formatDishes(dishes) {
   }
 
   return dishesList;
+}
+
+function addNewDish(dishes, ingredients, testConn) {
+  const conn = testConn || connection;
+  return conn("dishes")
+    .insert([{ name: dishes.name }])
+    .then(dishId => {
+      ingredients = ingredients.map(ingredient => {
+        return {
+          dish_id: dishId[0],
+          ingredient_id: ingredient
+        };
+      });
+
+      return conn("recipe_joins").insert(ingredients);
+    });
 }
