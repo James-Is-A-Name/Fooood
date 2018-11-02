@@ -53,7 +53,7 @@ function formatDishes(dishes) {
 function addNewDish(dishes, ingredients, testConn) {
   const conn = testConn || connection;
   return conn("dishes")
-    .insert([{ name: dishes.name }])
+    .insert([{ name: dishes.name }], "id")
     .then(dishId => {
       ingredients = ingredients.map(ingredient => {
         return {
