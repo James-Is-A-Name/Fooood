@@ -102,3 +102,17 @@ test("test dish list", () => {
     })
     .catch(err => expect(err).toBeNull());
 });
+
+test("test dish list", () => {
+  return request(server)
+    .get("/newdish")
+    .expect(200)
+    .then(res => {
+      const $ = cheerio.load(res.text);
+      const ingredientsList = $("h2")
+        .first()
+        .text();
+      expect(ingredientsList).toBe("Alll the stuff");
+    })
+    .catch(err => expect(err).toBeNull());
+});
