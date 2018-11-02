@@ -26,6 +26,36 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/newdish", (req, res) => {
+  db.getIngredients()
+    .then(ingredients => {
+      let ingredientList = {
+        categories: [
+          {
+            name: "Alll the stuff",
+            items: ingredients
+          }
+        ]
+      };
+      res.render("addDish", ingredientList);
+    })
+    .catch(err => {
+      res.status(500).send("Well this isnt good :(" + err.message);
+    });
+});
+
+router.post("/newdish", (req, res) => {
+  let addDish = {
+    name: req.body.dishName
+  };
+
+  let ingredients = Object.keys(req.body);
+
+  ingredients = ingredients.filter(ingredient => ingredient != "dishName");
+
+  db.addNewDish(addDish, ingredients).then(() => res.redirect("/newdish"));
+});
+
 router.get("/dishes", (req, res) => {
   // res.render("dishes", exampleDishesObject);
   db.getAllDishes()

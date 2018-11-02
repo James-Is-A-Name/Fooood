@@ -1,6 +1,9 @@
-<form action="/dishes" method="post">
+<form action="/newdish" method="post">
 
-  <input class="btn btn-outline-primary" type="submit" value="What Can I Make?">
+  <input class="btn btn-outline-primary" type="submit" value="Add New Dish">
+
+  Recipie Name<input type="text" name="dishName">
+
   {{#each categories}}
   <h2 class="category-title">{{name}}</h2>
   <div class="things-tiled-list">
